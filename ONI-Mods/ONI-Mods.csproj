@@ -1,11 +1,46 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
         <RootNamespace>ONI_Mods</RootNamespace>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <AssemblyName>ONI-Mods</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <Deterministic>true</Deterministic>
+        <DebugType>none</DebugType>
+        <GameAssemblies>$(MSBuildProjectDirectory)\API Reference</GameAssemblies>
+        <SteamFolder Condition="'$(SteamFolder)' == ''">C:\Program Files (x86)\Steam</SteamFolder>
+        <GameFolder Condition="'$(GameFolder)' == ''">$(SteamFolder)\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</GameFolder>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(GameAssemblies)\Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(GameAssemblies)\Assembly-CSharp-firstpass.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>$(GameAssemblies)\0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(GameFolder)\UnityEngine.CoreModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <Target Name="CopyToModsFolder" AfterTargets="Build" Condition="'$(ModsFolder)' != ''">
+        <PropertyGroup>
+            <ModInstallDir>$(ModsFolder)\$(AssemblyName)</ModInstallDir>
+        </PropertyGroup>
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(ModInstallDir)\$(TargetFileName)" />
+        <Copy SourceFiles="$(MSBuildProjectDirectory)\mod_info.yaml" DestinationFiles="$(ModInstallDir)\mod_info.yaml" />
+    </Target>
 
 </Project>

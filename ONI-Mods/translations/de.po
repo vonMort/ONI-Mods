@@ -1,0 +1,15 @@
+msgid ""
+msgstr ""
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "STRINGS.BUILDINGS.PREFABS.COMPACTSMARTBATTERY.NAME"
+msgstr "Kompakte Smart Battery"
+
+msgid "STRINGS.BUILDINGS.PREFABS.COMPACTSMARTBATTERY.DESC"
+msgstr "Ein schlanker Akkumulator zur Rückwandmontage.\n\nAutomatisiert Stromnetze mit einem Signal basierend auf dem Ladezustand."
+
+msgid "STRINGS.BUILDINGS.PREFABS.COMPACTSMARTBATTERY.EFFECT"
+msgstr "Speichert bis zu 10 kJ elektrischer Energie und gibt ein Automationssignal basierend auf dem Ladezustand aus.\n\nMuss an einer Rückwand gebaut werden."
