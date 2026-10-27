@@ -3,6 +3,10 @@
 A compact, wall-mounted Smart Battery for Oxygen Not Included.
 Save floor space without giving up automation control.
 
+Download the mod from
+[GitHub Releases](https://github.com/vonMort/ONI-Mods/releases).
+See the [installation instructions](../README.md#installation) for local setup.
+
 ## Features
 
 - **1x2 footprint:** mounts on a back wall instead of standing on the floor.
