@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <RootNamespace>CompactSmartBattery</RootNamespace>
+        <AssemblyName>CompactSmartBattery</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <Deterministic>true</Deterministic>
+        <DebugType>none</DebugType>
+        <SteamFolder Condition="'$(SteamFolder)' == '' and '$(OS)' != 'Windows_NT'">$(HOME)/.local/share/Steam</SteamFolder>
+        <SteamFolder Condition="'$(SteamFolder)' == ''">C:\Program Files (x86)\Steam</SteamFolder>
+        <GameFolder Condition="'$(GameFolder)' == ''">$(SteamFolder)\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</GameFolder>
+        <GameAssemblies Condition="'$(GameAssemblies)' == ''">$(GameFolder)</GameAssemblies>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(GameAssemblies)\Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(GameAssemblies)\Assembly-CSharp-firstpass.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>$(GameAssemblies)\0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(GameFolder)\UnityEngine.CoreModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="mod.yaml;mod_info.yaml;translations/**/*.po;anim/**/*.bytes;anim/**/*.png" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+    <Target Name="ValidateCustomArtwork" BeforeTargets="PrepareForBuild">
+        <PropertyGroup>
+            <ArtworkDir>$(MSBuildProjectDirectory)/anim/assets/compactsmartbattery</ArtworkDir>
+        </PropertyGroup>
+        <ItemGroup>
+            <CustomArtwork Include="$(MSBuildProjectDirectory)/anim/**/*.bytes;$(MSBuildProjectDirectory)/anim/**/*.png" />
+        </ItemGroup>
+        <Error Condition="'@(CustomArtwork)' != '' and !Exists('$(ArtworkDir)/compactsmartbattery_anim.bytes')"
+               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_anim.bytes. See technical Documentation/CompactSmartBattery/artwork.md at the repository root." />
+        <Error Condition="'@(CustomArtwork)' != '' and !Exists('$(ArtworkDir)/compactsmartbattery_build.bytes')"
+               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_build.bytes. See technical Documentation/CompactSmartBattery/artwork.md at the repository root." />
+        <Error Condition="'@(CustomArtwork)' != '' and !Exists('$(ArtworkDir)/compactsmartbattery_0.png')"
+               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_0.png. See technical Documentation/CompactSmartBattery/artwork.md at the repository root." />
+    </Target>
+
+    <Target Name="CopyToModsFolder" AfterTargets="Build" Condition="'$(ModsFolder)' != ''">
+        <PropertyGroup>
+            <ModInstallDir>$(ModsFolder)\CompactSmartBattery</ModInstallDir>
+        </PropertyGroup>
+        <ItemGroup>
+            <ModMetadata Include="$(MSBuildProjectDirectory)/mod.yaml;$(MSBuildProjectDirectory)/mod_info.yaml" />
+            <ModTranslation Include="$(MSBuildProjectDirectory)/translations/**/*.po" />
+            <ModArtwork Include="$(MSBuildProjectDirectory)/anim/**/*.bytes;$(MSBuildProjectDirectory)/anim/**/*.png" />
+        </ItemGroup>
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(ModInstallDir)\$(TargetFileName)" />
+        <Copy SourceFiles="@(ModMetadata)" DestinationFolder="$(ModInstallDir)" />
+        <Copy SourceFiles="@(ModTranslation)" DestinationFiles="@(ModTranslation->'$(ModInstallDir)/translations/%(RecursiveDir)%(Filename)%(Extension)')" />
+        <Copy SourceFiles="@(ModArtwork)" DestinationFiles="@(ModArtwork->'$(ModInstallDir)/anim/%(RecursiveDir)%(Filename)%(Extension)')" />
+    </Target>
+
+</Project>
