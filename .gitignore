@@ -17,7 +17,7 @@
 # Test output
 **/TestResults/
 
-# Reproducible artwork intermediates (keep compiled game assets under anim/)
+# Editable artwork and local archives; compiled assets under anim/ stay public
 CompactSmartBattery/artwork/
 CompactSmartBattery/artwork.tar.gz
 core
