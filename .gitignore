@@ -2,8 +2,10 @@
 **/[Bb]in/
 **/[Oo]bj/
 /dist/
-/scripts
-/technical Documentation
+
+# Local developer documentation and release tooling (private repository)
+/scripts/
+/technical Documentation/
 
 # IDE settings
 .idea/
@@ -17,5 +19,6 @@
 
 # Reproducible artwork intermediates (keep compiled game assets under anim/)
 CompactSmartBattery/artwork/
+CompactSmartBattery/artwork.tar.gz
 core
 core.*

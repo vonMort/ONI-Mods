@@ -48,11 +48,11 @@
             <CustomArtwork Include="$(MSBuildProjectDirectory)/anim/**/*.bytes;$(MSBuildProjectDirectory)/anim/**/*.png" />
         </ItemGroup>
         <Error Condition="'@(CustomArtwork)' != '' and !Exists('$(ArtworkDir)/compactsmartbattery_anim.bytes')"
-               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_anim.bytes. See technical Documentation/CompactSmartBattery/artwork.md at the repository root." />
+               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_anim.bytes." />
         <Error Condition="'@(CustomArtwork)' != '' and !Exists('$(ArtworkDir)/compactsmartbattery_build.bytes')"
-               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_build.bytes. See technical Documentation/CompactSmartBattery/artwork.md at the repository root." />
+               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_build.bytes." />
         <Error Condition="'@(CustomArtwork)' != '' and !Exists('$(ArtworkDir)/compactsmartbattery_0.png')"
-               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_0.png. See technical Documentation/CompactSmartBattery/artwork.md at the repository root." />
+               Text="Custom artwork requires anim/assets/compactsmartbattery/compactsmartbattery_0.png." />
     </Target>
 
     <Target Name="CopyToModsFolder" AfterTargets="Build" Condition="'$(ModsFolder)' != ''">

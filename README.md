@@ -7,8 +7,6 @@ Independent C# mods for Oxygen Not Included, maintained in one solution.
 | [Compact Smart Battery](CompactSmartBattery/README.md) | A 1x2 wall-mounted Smart Battery with half the base capacity |
 
 Each mod's README contains its player-facing description and compatibility details.
-Build instructions, implementation notes, and artwork guides are collected in
-[technical Documentation](technical%20Documentation/README.md).
 
 ## AI transparency
 
