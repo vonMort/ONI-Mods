@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONI-Mods", "ONI-Mods\ONI-Mods.csproj", "{77779E57-003A-4380-958F-5CD0F72B9E11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompactSmartBattery", "CompactSmartBattery\CompactSmartBattery.csproj", "{77779E57-003A-4380-958F-5CD0F72B9E11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

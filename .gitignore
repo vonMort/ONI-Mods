@@ -11,3 +11,8 @@
 
 # Test output
 **/TestResults/
+
+# Reproducible artwork intermediates (keep compiled game assets under anim/)
+CompactSmartBattery/artwork/
+core
+core.*
