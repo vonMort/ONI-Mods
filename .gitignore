@@ -1,6 +1,9 @@
 # .NET build output
 **/[Bb]in/
 **/[Oo]bj/
+/dist/
+/scripts
+/technical Documentation
 
 # IDE settings
 .idea/

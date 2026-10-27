@@ -40,6 +40,9 @@ battery details display the actual capacity, including other mods' changes.
 
 ## Build
 
+For an installable ZIP and optional GitHub release draft, use the
+[local release guide](../releases.md).
+
 Requires a .NET SDK, .NET Framework 4.8 reference assemblies, and an ONI
 installation at build U59-744825 or newer. Game DLLs are referenced locally,
 not bundled.

@@ -4,6 +4,9 @@ Public development and artwork documentation for contributors.
 Player-facing mod descriptions live in each mod project's README.
 This directory is not included in mod packages.
 
+See [local builds and GitHub releases](releases.md) for installable ZIP packages
+and optional GitHub release drafts.
+
 ## Mods
 
 | Mod | Development | Artwork |
