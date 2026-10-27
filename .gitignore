@@ -1,0 +1,13 @@
+# .NET build output
+**/[Bb]in/
+**/[Oo]bj/
+
+# IDE settings
+.idea/
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Test output
+**/TestResults/
