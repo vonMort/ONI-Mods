@@ -1,0 +1,24 @@
+# .NET build output
+**/[Bb]in/
+**/[Oo]bj/
+/dist/
+
+# Local developer documentation and release tooling (private repository)
+/scripts/
+/technical Documentation/
+
+# IDE settings
+.idea/
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Test output
+**/TestResults/
+
+# Editable artwork and local archives; compiled assets under anim/ stay public
+CompactSmartBattery/artwork/
+CompactSmartBattery/artwork.tar.gz
+core
+core.*

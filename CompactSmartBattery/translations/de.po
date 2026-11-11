@@ -1,0 +1,14 @@
+msgid ""
+msgstr ""
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "CompactSmartBattery.ModStrings.NAME"
+msgid "Compact Smart Battery"
+msgstr "Kompakte Smart Battery"
+
+msgctxt "CompactSmartBattery.ModStrings.BACKWALL"
+msgid "Must be built against a back wall. Does not require a floor."
+msgstr "Muss an einer Rückwand gebaut werden. Benötigt keinen Boden."
